@@ -1,0 +1,18 @@
+{
+  "db": {
+    "name": "db",
+    "localStorage": "",
+    "file": "",
+    "connector": "memory"
+  },
+  "mysqlDS": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "url": "",
+    "database": "resumelizatorcv",
+    "password": "root",
+    "name": "mysqlDS",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

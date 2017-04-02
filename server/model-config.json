@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "applicant": {
+    "dataSource": "mysqlDS",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "education": {
+    "dataSource": "mysqlDS",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "skill": {
+    "dataSource": "mysqlDS",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "EmploymentSkill": {
+    "dataSource": "mysqlDS",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "ApplicantSkillLevel": {
+    "dataSource": "mysqlDS",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "employment": {
+    "dataSource": "mysqlDS",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  }
+}
