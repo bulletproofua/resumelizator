@@ -31,6 +31,11 @@
       "foreignKey": "applicantId"
     }
   },
-  "acls": [],
+  "acls": [{
+    "accessType": "*", 
+    "permission": "ALLOW", 
+    "principalType": "ROLE", 
+    "principalId": "$everyone"
+  }],
   "methods": {}
 }

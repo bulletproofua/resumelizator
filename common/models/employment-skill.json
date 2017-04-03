@@ -9,7 +9,7 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "employments": {
+    "employment": {
       "type": "belongsTo",
       "model": "employment",
       "foreignKey": "employmentId"
@@ -20,6 +20,11 @@
       "foreignKey": "skillId"
     }
   },
-  "acls": [],
+  "acls": [{
+    "accessType": "*", 
+    "permission": "ALLOW", 
+    "principalType": "ROLE", 
+    "principalId": "$everyone"
+  }],
   "methods": {}
 }

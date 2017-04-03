@@ -18,19 +18,28 @@
   },
   "validations": [],
   "relations": {
-    "applicants": {
-      "type": "hasMany",
-      "model": "applicant",
-      "foreignKey": "skillId",
-      "through": "ApplicantSkillLevel"
-    },
     "employments": {
       "type": "hasMany",
       "model": "employment",
       "foreignKey": "employmentId",
       "through": "EmploymentSkill"
+    },
+    "applicantSkillLevels": {
+      "type": "hasMany",
+      "model": "ApplicantSkillLevel",
+      "foreignKey": "skillId"
+    },
+    "employmentSkills": {
+      "type": "hasMany",
+      "model": "EmploymentSkill",
+      "foreignKey": "skillId"
     }
   },
-  "acls": [],
+  "acls": [{
+    "accessType": "*", 
+    "permission": "ALLOW", 
+    "principalType": "ROLE", 
+    "principalId": "$everyone"
+  }],
   "methods": {}
 }

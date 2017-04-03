@@ -42,11 +42,11 @@ module.exports = function(app) {
     app.dataSources.mysqlDS.automigrate('skill', function(err) {
     if (err) throw err;
       app.models.skill.create([
-          { "type": "Express", "name": "NodeJS" },
-          { "type": "Bootstrap", "name": "CSS-framework" },
-          { "type": "Jade", "name": "HTML" },
-          { "type": "Less", "name": "CSS" },
-          { "type": "jQuery", "name": "JS" }
+          { "type": "framework", "name": "Express" },
+          { "type": "framework", "name": "Bootstrap" },
+          { "type": "framework", "name": "Angular" },
+          { "type": "language", "name": "С++" },
+          { "type": "language", "name": "JS" }
         ], function(err, skills) {
         if (err) throw err;
      console.log('skill created: \n');
@@ -78,6 +78,7 @@ module.exports = function(app) {
           { "level": 9, "years": 1.2, "applicantId": 3, "skillId": 3},
           { "level": 8, "years": 2, "applicantId": 3, "skillId": 1},
           { "level": 8, "years": 2, "applicantId": 3, "skillId": 2},
+          { "level": 8, "years": 2, "applicantId": 3, "skillId": 5},
           { "level": 8, "years": 2, "applicantId": 3, "skillId": 5},
         ], function(err, EmploymentSkills) {
       if (err) throw err;

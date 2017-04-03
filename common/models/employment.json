@@ -32,13 +32,17 @@
       "model": "applicant",
       "foreignKey": "applicantId"
     },
-    "skills": {
+    "employmentSkills": {
       "type": "hasMany",
-      "model": "skill",
-      "foreignKey": "skillId",
-      "through": "EmploymentSkill"
+      "model": "EmploymentSkill",
+      "foreignKey": "employmentId"
     }
   },
-  "acls": [],
+  "acls": [{
+    "accessType": "*", 
+    "permission": "ALLOW", 
+    "principalType": "ROLE", 
+    "principalId": "$everyone"
+  }],
   "methods": {}
 }

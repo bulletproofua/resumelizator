@@ -1,17 +1,19 @@
 'use strict';
 
-// var SkillM = require("./skill");
 module.exports = function(Applicant) {
 
 
     Applicant.topTenSkills = function(cb) {
         var filter = {
             include: {
-                relation: "applicants"
+                relation: "applicantSkillLevels"
             }
         };
 // {"include": { "relation": "employmentSkills"}}
+// {"include": { "relation": "skill"}}
 // {"where":{ "id": "1"}}
+
+// {"include": { "relation": "applicantSkillLevels"}}
     Applicant.app.models.Skill.find( filter, function(err, result){
         if(err){
             console.log(err);
@@ -21,7 +23,7 @@ module.exports = function(Applicant) {
 
             for(var i = 0; i < result.length; i++){
                 var skill = result[i].toJSON();
-                array.push({ name: skill.name, val: skill.applicants.length } );
+                array.push({ name: skill.name, val: skill.applicantSkillLevels.length } );
             }
 
             array.sort(function(a,b){
@@ -34,46 +36,60 @@ module.exports = function(Applicant) {
                 res[i] = array[i].name;
             }
 
-            cb(null, res); //5
+            cb(null, res); 
         }  
     });
-    // Applicant.app.module.ApplicantSkillLevel.find(filter, function(err, result){
-    //     if(err){
-    //         console.log("we have error");
-    //     }      
-    //     cb(null, [result]);
-    // });
   };
 
 // .prototipe
+
    Applicant.topThreeSkills = function(id,cb) {
         var filter = {
-            include: {
-                relation: "skills",                
+          include: { 
+                    relation: "applicantSkillLevels", 
+                        scope: { 
+                            include: { 
+                            relation: "skill" 
+                        } 
+                } 
             }
         };
 
+
         Applicant.findById(id, filter, function(err, result){
+                
                 var applicant = result.toJSON();
 
                 var array = new Array();
+                var obj = new Object();
 
-                for(var i = 0; i< applicant.length; i++){
-                    
+                for(var i = 0; i< applicant.applicantSkillLevels.length; i++){
+                    if ( applicant.applicantSkillLevels[i].skill.name in obj) {
+                        obj[applicant.applicantSkillLevels[i].skill.name] += 1 ;
+                    } else {
+                        obj[applicant.applicantSkillLevels[i].skill.name] = 1;
+                    }
                 }
+                        var TopSkils = [];
+                        for (var val in obj) {
+                            TopSkils.push([val, obj[val]]); 
+                        }
+                        TopSkils.sort(function(a, b) {
+                            return b[1] - a[1];
+                        });
 
-            cb(null, result);
+                    var top3skills = [];
+                        for(var j = 0 ; j < (TopSkils.length < 3 ?TopSkils.length : 3); j++){
+                               console.log(TopSkils[j][0]);
+                            top3skills[j] = TopSkils[j][0];
+                        }         
+            cb(null, top3skills);
         });
        
    };
 
   Applicant.remoteMethod('topTenSkills', {
     description: "Return topTenSkills",
-        // accepts:{
-        //    arg: "id",
-        //    type:"number",
-        //    required:true 
-        // },
       http: {
         path: '/topTenSkills',
         verb: 'get'
