@@ -1,0 +1,8 @@
+<section ng-controller="topTenSkills" >
+    <div class="topTenSkills col-md-8 col-md-offset-2">
+        <h3>Top ten skills</h3>
+        <ul ng-repeat="param  in Skills.skills">
+            <li > {{$index + 1}} - {{param}} </li>
+        </ul>            
+    </div>    
+</section>
