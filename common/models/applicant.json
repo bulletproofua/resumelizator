@@ -17,11 +17,6 @@
   },
   "validations": [],
   "relations": {
-    "education": {
-      "type": "hasMany",
-      "model": "education",
-      "foreignKey": "educationId"
-    },
     "employments": {
       "type": "hasMany",
       "model": "employment",
@@ -31,13 +26,19 @@
       "type": "hasMany",
       "model": "ApplicantSkillLevel",
       "foreignKey": "applicantId"
+    },
+    "education": {
+      "type": "hasMany",
+      "model": "education"
     }
   },
-  "acls": [{
-    "accessType": "*", 
-    "permission": "ALLOW", 
-    "principalType": "ROLE", 
-    "principalId": "$everyone"
-  }],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

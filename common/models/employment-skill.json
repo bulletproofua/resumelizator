@@ -20,11 +20,13 @@
       "foreignKey": "skillId"
     }
   },
-  "acls": [{
-    "accessType": "*", 
-    "permission": "ALLOW", 
-    "principalType": "ROLE", 
-    "principalId": "$everyone"
-  }],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

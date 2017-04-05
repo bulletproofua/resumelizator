@@ -30,10 +30,26 @@ angular
         $scope.greeting = 'Hola!';
     }])
 
+// {"include": { "relation": "employmentSkills"}}
+// {"where":{ "applicantId": "2"}}
     .controller('UserInfo', [ '$scope' ,'Applicant', '$stateParams',function($scope, Applicant,$stateParams){    
         console.log($stateParams.id );   
-         $scope.ApplicantInfo = Applicant.findById({id: $stateParams.id });  
-    }])
+
+        $scope.ApplicantInfo = Applicant.find({
+             filter: {
+                where: {
+                    id: $stateParams.id
+                },
+                 include: [ { relation: 'education' } , { relation: 'employments'} ] 
+             }
+         }
+        );
+    }])  
+                //  scope: {
+                //     include: { relation: 'employments'}
+                //  }
+                    //  include: { relation: 'employments' }
+                    //  include: { relation: 'education' ,scope: { where: { applicantId: $stateParams.id } } }
     .controller('topTenSkills', [ '$scope' ,'Applicant',function($scope, Applicant){       
         $scope.Skills =  Applicant.topTenSkills();
     }]);

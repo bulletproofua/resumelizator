@@ -5,7 +5,7 @@ module.exports = function(app) {
         { username: "Vadim", name: "Scherban" },
         { username: "Yura", name: "Sun" },
         { username: "Vadim", name: "Dochka" },
-        { username: "Vadim", name: "Dochka" }
+        { username: "Petro", name: "Koliy" }
       ], function(err, applicants) {
       if (err) throw err;
      console.log('applicant created: \n');
@@ -16,6 +16,7 @@ module.exports = function(app) {
     if (err) throw err;
       app.models.education.create([
         { "dateStart": "2012-04-01T19:31:38.918Z", "dateFinish": "2017-04-01T19:31:38.919Z", "place": "VNTU", "speciality": "CS", "applicantId": 1 },
+        { "dateStart": "2010-04-01T19:31:38.918Z", "dateFinish": "2012-04-01T19:31:38.919Z", "place": "PTU", "speciality": "Traxtorist", "applicantId": 2 },
         { "dateStart": "2012-04-01T19:31:38.918Z", "dateFinish": "2017-04-01T19:31:38.919Z", "place": "VNTU", "speciality": "PI", "applicantId": 2 },
         { "dateStart": "2012-04-01T19:31:38.918Z", "dateFinish": "2018-06-01T19:31:38.919Z", "place": "KPI", "speciality": "OOP", "applicantId": 3 },
         { "dateStart": "2012-04-01T19:31:38.918Z", "dateFinish": "2017-06-01T19:31:38.919Z", "place": "NAU", "speciality": "OOJ", "applicantId": 4 }
@@ -28,11 +29,11 @@ module.exports = function(app) {
     app.dataSources.mysqlDS.automigrate('employment', function(err) {
     if (err) throw err;
           app.models.employment.create([
-              { "company": "ORM",  "dateFinish": "2015-01-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "junoir QA", "responsibility": "tratata"},
-              { "company": "OPK",  "dateFinish": "2014-04-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "junoir Front", "responsibility": "tratata"},
-              { "company": "SDM",  "dateFinish": "2013-04-01T19:31:39.059Z", "dateStart": "2015-04-01T19:31:39.059Z", "position": "tratata", "responsibility": "tratata"},
-              { "company": "NoSkillSoft",  "dateFinish": "2015-04-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "tratata SEO", "responsibility": "tratata"},
-              { "company": "BadCode",  "dateFinish": "2016-04-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "HR", "responsibility": "tratata"}
+              { "company": "ORM",  "dateFinish": "2015-01-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "junoir QA", "responsibility": "tratata", "applicantId": 1},
+              { "company": "OPK",  "dateFinish": "2014-04-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "junoir Front", "responsibility": "tratata", "applicantId": 2},
+              { "company": "SDM",  "dateFinish": "2013-04-01T19:31:39.059Z", "dateStart": "2015-04-01T19:31:39.059Z", "position": "tratata", "responsibility": "tratata", "applicantId": 2},
+              { "company": "NoSkillSoft",  "dateFinish": "2015-04-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "tratata SEO", "responsibility": "tratata", "applicantId": 3},
+              { "company": "BadCode",  "dateFinish": "2016-04-01T19:31:39.059Z", "dateStart": "2017-04-01T19:31:39.059Z", "position": "HR", "responsibility": "tratata", "applicantId": 4}
           ], function(err, employment) {
           if (err) throw err;
         console.log('employment created: \n');
@@ -65,8 +66,7 @@ module.exports = function(app) {
      console.log('employmentSkill created: \n');
       });
   });
-
-  
+ 
     
     app.dataSources.mysqlDS.automigrate('ApplicantSkillLevel', function(err) {
     if (err) throw err;
