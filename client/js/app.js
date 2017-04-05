@@ -24,11 +24,18 @@ myApp.config(function($stateProvider) {
     templateUrl: 'views/topTenSkills.html',
     controller: 'topTenSkills'
   }
+  
   var UserInfo = {
     name: 'UserInfo',
     url: '/UserInfo/:id',
     templateUrl: 'views/UserInfo.html',
     controller: 'UserInfo'
+  }
+  var topThreeSkills = {
+    name: 'topThreeSkills',
+    url: '/topThreeSkills/:id',
+    templateUrl: 'views/topThreeSkills.html',
+    controller: 'topThreeSkills'
   }
 
 
@@ -37,5 +44,6 @@ myApp.config(function($stateProvider) {
   $stateProvider.state(aboutState);
   $stateProvider.state(topTenSkills);
   $stateProvider.state(UserInfo);
+  $stateProvider.state(topThreeSkills);
 });
 

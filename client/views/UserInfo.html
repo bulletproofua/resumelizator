@@ -6,19 +6,17 @@
             <ul ng-repeat="paramEd in param.education">
                 <h4>{{paramEd.place}} </h4>
                 <li>speciality: {{paramEd.speciality}}</li>
-                <li>Start: {{paramEd.dateStart}}</li>
-                <li>Finish: {{paramEd.dateFinish}}</li>
+                <li>Start: {{paramEd.dateStart | limitTo: 10}}</li>
+                <li>Finish: {{paramEd.dateFinish | limitTo: 10}}</li>
             </ul>
             <h4>Employment:</h4>
             <ul ng-repeat="paramEmp in param.employments">
                 <h4>{{paramEmp.company}} </h4>
                 <li>position: {{paramEmp.position}}</li> 
                 <li>responsibility: {{paramEmp.responsibility}}</li>
-                <li>Start: {{paramEmp.dateStart}}</li>
-                <li>Finish: {{paramEmp.dateFinish}}</li>
+                <li>Start: {{paramEmp.dateStart | limitTo: 10}}</li>
+                <li>Finish: {{paramEmp.dateFinish | limitTo: 10}}</li>
             </ul>
         </ul>
-        <br>
-        {{ApplicantInfo}}
     </div>    
 </section>

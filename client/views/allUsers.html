@@ -6,17 +6,17 @@
            
             <button class="btn btn-primary" ui-sref="UserInfo({ id: param.id })"  ui-sref-active="active">CV</button> 
 
-            <button type="button" class="skillBtn btn btn-info pull-right" ng-click="myValue = true"> Top skills </button>
+            <button type="button" class="skillBtn btn btn-info pull-right" ui-sref="topThreeSkills({ id: param.id })"  ui-sref-active="active" ng-click="myValue = true"> Top skills </button>
 
-                <input class="btn btn-primary" type="submit" ng-show="checked" ng-click="checked = false" value="Hide"> 
+                <!--<input class="btn btn-primary" type="submit" ng-show="checked" ng-click="checked = false" value="Hide"> -->
                 
-                <div ng-show="myValue" class="ng-hide">
+                <!--<div ng-show="myValue" class="ng-hide">
                     <h4> Skills : {{ ApplicantSkills}} </h4>
-                    <!--<h3>UserID -  {{AllInfo}}</h3>
+                    <h3>UserID -  {{AllInfo}}</h3>
                     <h3>param: {{param.id}} </h3>-->
-                    <!--<h2>{{WORKPLZ(param.id)}}</h2>-->
-                </div>
-                <div class="content-area sample-show-hide" ng-show="checked">
+                    <!--<h2>{{WORKPLZ(param.id)}}</h2>
+                </div>-->
+                <!--<div class="content-area sample-show-hide" ng-show="checked">
                     <div>
                         <h4>Education</h3>                        
                     </div>
@@ -28,6 +28,6 @@
                     </div>
 
                 </div>
-        </ul>              
+        </ul>              -->
     </div>    
 </section>
